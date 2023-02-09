@@ -1,0 +1,15 @@
+---
+all:
+  vars:
+    ansible_user: azureuser
+    ansible_ssh_private_key: ./sshkey
+    ansible_ssh_extra_args: '-o StrictHostkeyChecking=no'
+  children:
+    jenkins:
+      hosts:
+        "jenkinsgabriel-ts.ddns.net":
+          ansible_host: 13.80.152.33
+    webserver:
+      hosts:
+        "webserver-ts.ddns.net":
+          ansible_host: 13.94.250.23
